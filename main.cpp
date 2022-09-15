@@ -36,4 +36,3 @@ temp.galut = double(sum) / double(n)* 0.4 + temp.egzas * 0.6;
   printf("%10s %10s %5s\n", temp.vardas.c_str(), temp.pavarde.c_str(), temp.galut);
  
 }
-*/
