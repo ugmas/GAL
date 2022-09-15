@@ -1,0 +1,71 @@
+//Programa bando skaiciuoti galut vertinima is auto generuotu duomenu
+#include <iostream>
+#include <string>
+#include <cstdio>
+#include <vector>
+#include <iomanip>
+#include <bits/stdc++.h>
+
+using namespace std;
+using std::cout;
+using std::cin;
+using std::string;
+using std::vector;
+using std::endl;
+
+struct irasas {
+string vardas;
+string pavarde;
+int paz[10];
+int egzas;
+double galut;
+double galut2;
+};
+
+int main() {
+  irasas temp;
+  int sum = 0;
+
+  srand(time(NULL));
+  
+  cout << "Ivesk varda: "; cin>>temp.vardas;
+  cout << "Ivesk pavarde: "; cin>>temp.pavarde;
+
+  int n;
+  cout<<"Kiek pazymiu turi mokinys";
+  cin>>n;
+  int Rand[n];
+  for(int r= 0; r < n; r++)
+    Rand[r]=rand()%10;
+    sum += r;
+  //cout<<"\nArray Elements::"<<endl;
+  //for(int r=0; r<n ; r++)
+    //cout<<"Number of Elements "<<r+1<<"::"<<Rand[r]<<endl;
+
+
+
+double mediana;
+  sort(Rand[n], Rand[n] + n);
+  if(n % 2 != 0)
+    mediana = Rand[n / 2]; 
+  else
+    mediana = (Rand[(n - 1) / 2] + Rand[n / 2]) / 2;
+  
+   
+temp.galut = double(sum) / double(n) * 0.4 + temp.egzas*0.6;
+temp.galut2 = mediana * 0.4 + temp.egzas * 0.6;
+
+  cout<<std::endl<<std::endl;
+  cout << setw(10)<< left << "Vardas"
+  << setw(10)<< left << "Pavarde"
+  << setw(19)<< left << "Galutinis (Vid.) / "
+  << setw(19)<< left << "Galutinis (Med.) / "
+  << "-----------------------------------------------"<< endl;
+
+  {cout << fixed << setprecision(2)<< left
+    << setw(10)<< temp.vardas<< left
+    << setw(10)<< temp.pavarde<< left
+    << setw(19)<< temp.galut<< left
+    << setw(10)<< temp.galut2;}
+  cout << "\n\n";
+}
